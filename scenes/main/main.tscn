@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpv2u4p3jkd8p"]
+
+[ext_resource type="Material" uid="uid://c3cmf6saa1v5m" path="res://assets/shaders/prototype_grid.tres" id="1_5wtlb"]
+[ext_resource type="PackedScene" uid="uid://jg04b088eu34" path="res://scenes/camera/camera.tscn" id="2_bx5je"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fhdmp"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_3ejub"]
+sky_material = SubResource("ProceduralSkyMaterial_fhdmp")
+
+[sub_resource type="Environment" id="Environment_uaiwy"]
+background_mode = 2
+sky = SubResource("Sky_3ejub")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5tigr"]
+material = ExtResource("1_5wtlb")
+size = Vector2(256, 256)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xcjqk"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Enviroment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment"]
+environment = SubResource("Environment_uaiwy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Enviroment"]
+transform = Transform3D(0.0784591, -0.955864, 0.28314, 0, 0.284015, 0.95882, -0.996917, -0.0752281, 0.0222836, 0, 0, 0)
+light_color = Color(0.927896, 0.929467, 0.829785, 1)
+shadow_enabled = true
+
+[node name="Space" type="Node3D" parent="."]
+
+[node name="Floor" type="MeshInstance3D" parent="Space"]
+mesh = SubResource("PlaneMesh_5tigr")
+
+[node name="Actor" type="MeshInstance3D" parent="Space"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_xcjqk")
+
+[node name="CameraRig" parent="." instance=ExtResource("2_bx5je")]
