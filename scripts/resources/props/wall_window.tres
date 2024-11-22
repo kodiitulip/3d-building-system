@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BuildingData" load_steps=4 format=3 uid="uid://cfujfkvamwm8y"]
+
+[ext_resource type="Texture2D" uid="uid://unmv5jq4c04k" path="res://assets/kenneys/kenney_mini-market/Previews/wall-window.png" id="1_tx1du"]
+[ext_resource type="PackedScene" uid="uid://dmsai8q67a7l6" path="res://assets/kenneys/kenney_mini-market/Models/GLB format/wall-window.glb" id="2_iunw8"]
+[ext_resource type="Script" path="res://scripts/resources/building_data.gd" id="3_vv51r"]
+
+[resource]
+resource_name = "Wall Window"
+script = ExtResource("3_vv51r")
+prop_name = "Wall Window"
+scene = ExtResource("2_iunw8")
+preview = ExtResource("1_tx1du")
+footprint = Vector3i(1, 1, 1)

@@ -1,18 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpv2u4p3jkd8p"]
+[gd_scene load_steps=10 format=3 uid="uid://cpv2u4p3jkd8p"]
 
 [ext_resource type="Material" uid="uid://c3cmf6saa1v5m" path="res://assets/shaders/prototype_grid.tres" id="1_5wtlb"]
+[ext_resource type="PackedScene" uid="uid://7i0ttm4bohxk" path="res://assets/kenneys/kenney_mini-market/Models/GLB format/character-employee.glb" id="2_6a4b4"]
 [ext_resource type="PackedScene" uid="uid://jg04b088eu34" path="res://scenes/camera/camera.tscn" id="2_bx5je"]
+[ext_resource type="PackedScene" uid="uid://cinbmyqyptomh" path="res://assets/kenneys/kenney_mini-market/Models/GLB format/floor.glb" id="3_3ttvk"]
+[ext_resource type="PackedScene" uid="uid://coqq26ekt35xh" path="res://scenes/ui/ui.tscn" id="3_byuc5"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fhdmp"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5etv7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_3ejub"]
-sky_material = SubResource("ProceduralSkyMaterial_fhdmp")
+[sub_resource type="Sky" id="Sky_he50c"]
+sky_material = SubResource("ProceduralSkyMaterial_5etv7")
 
-[sub_resource type="Environment" id="Environment_uaiwy"]
+[sub_resource type="Environment" id="Environment_88isf"]
 background_mode = 2
-sky = SubResource("Sky_3ejub")
+sky = SubResource("Sky_he50c")
 tonemap_mode = 2
 glow_enabled = true
 
@@ -20,27 +23,30 @@ glow_enabled = true
 material = ExtResource("1_5wtlb")
 size = Vector2(256, 256)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_xcjqk"]
-
 [node name="Main" type="Node3D"]
 
 [node name="Enviroment" type="Node3D" parent="."]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment"]
-environment = SubResource("Environment_uaiwy")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Enviroment"]
-transform = Transform3D(0.0784591, -0.955864, 0.28314, 0, 0.284015, 0.95882, -0.996917, -0.0752281, 0.0222836, 0, 0, 0)
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 light_color = Color(0.927896, 0.929467, 0.829785, 1)
 shadow_enabled = true
 
-[node name="Space" type="Node3D" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment"]
+environment = SubResource("Environment_88isf")
+
+[node name="Space" type="Node3D" parent="." groups=["world_container"]]
 
 [node name="Floor" type="MeshInstance3D" parent="Space"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.002, 0)
 mesh = SubResource("PlaneMesh_5tigr")
 
-[node name="Actor" type="MeshInstance3D" parent="Space"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_xcjqk")
+[node name="character-employee2" parent="Space" instance=ExtResource("2_6a4b4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.5)
+
+[node name="floor2" parent="Space" instance=ExtResource("3_3ttvk")]
 
 [node name="CameraRig" parent="." instance=ExtResource("2_bx5je")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="UILayer" parent="." instance=ExtResource("3_byuc5")]

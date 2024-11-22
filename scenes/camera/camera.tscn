@@ -5,10 +5,12 @@
 [node name="CameraRig" type="Node3D"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
 script = ExtResource("1_w8t06")
-speed_normal = 3.0
-speed_fast = 5.0
-zoom_min = 20.0
-rotation_amount = 10.0
+speed_normal = 0.2
+speed_fast = 1.2
+zoom_amount = 2.0
+zoom_max = 20.0
+zoom_min = 1.0
+rotation_amount = 5.0
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
 transform = Transform3D(-1, -6.18172e-08, 6.18172e-08, 0, 0.707107, 0.707107, -8.74228e-08, 0.707107, -0.707107, 0, 0, 0)

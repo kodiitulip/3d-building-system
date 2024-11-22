@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BuildingData" load_steps=4 format=3 uid="uid://duhc4fll6x7or"]
+
+[ext_resource type="Texture2D" uid="uid://d1ygf455wkodk" path="res://assets/kenneys/kenney_mini-market/Previews/wall-door-rotate.png" id="1_1wqmk"]
+[ext_resource type="PackedScene" uid="uid://bfucrjwwwu84l" path="res://assets/kenneys/kenney_mini-market/Models/GLB format/wall-door-rotate.glb" id="2_uy8v8"]
+[ext_resource type="Script" path="res://scripts/resources/building_data.gd" id="3_88ie3"]
+
+[resource]
+resource_name = "Wall Door"
+script = ExtResource("3_88ie3")
+prop_name = "Wall Door"
+scene = ExtResource("2_uy8v8")
+preview = ExtResource("1_1wqmk")
+footprint = Vector3i(1, 1, 1)

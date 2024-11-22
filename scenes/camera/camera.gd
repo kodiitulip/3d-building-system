@@ -65,18 +65,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		_handle_rotation_mouse_input(event as InputEventMouseMotion)
 
 
-func _cast_ray_from_cam(cam: Camera3D, ray_len: float) -> Variant:
-	var plane: Plane = Plane(Vector3.UP).normalized()
-	var mouse_pos: Vector2 = get_viewport().get_mouse_position()
-	var origin: Vector3 = cam.project_ray_origin(mouse_pos)
-	var end: Vector3 = origin + cam.project_ray_normal(mouse_pos) * ray_len
-	return plane.intersects_segment(origin, end)
-
-
 func _handle_rotation_mouse_input(event: InputEventMouseMotion) -> void:
 	if not Input.is_action_pressed(&"rotate_cam_mouse"):
 		return
-	var axis: float = event.relative.x * 0.3
+	var axis: float = -event.relative.x * 0.3
 	var axis_x: float = -event.relative.y * 0.3
 	if inverted_x_axis:
 		axis = -axis
@@ -89,11 +81,15 @@ func _handle_rotation_mouse_input(event: InputEventMouseMotion) -> void:
 
 func _handle_movement_mouse_input() -> void:
 	if Input.is_action_just_pressed(&"move_cam_mouse"):
-		var pos: Variant = _cast_ray_from_cam(camera, ray_length)
+		var screen_point: Vector2 = get_viewport().get_mouse_position()
+		var pos: Vector3 = Utils.cast_ray_to_plane(
+			Plane(Vector3.UP), screen_point, camera, ray_length)
 		if pos:
 			drag_start_pos = pos
 	if Input.is_action_pressed(&"move_cam_mouse"):
-		var pos: Variant = _cast_ray_from_cam(camera, ray_length)
+		var screen_point: Vector2 = get_viewport().get_mouse_position()
+		var pos: Vector3 = Utils.cast_ray_to_plane(
+			Plane(Vector3.UP), screen_point, camera, ray_length)
 		if pos:
 			drag_current_pos = pos
 		new_position = global_position + drag_start_pos - drag_current_pos
