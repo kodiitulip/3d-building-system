@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ca38vioo8t7fo" path="res://assets/kenneys/kenney_mini-market/Previews/floor.png" id="1_at450"]
 [ext_resource type="PackedScene" uid="uid://cinbmyqyptomh" path="res://assets/kenneys/kenney_mini-market/Models/GLB format/floor.glb" id="2_fpdqh"]
-[ext_resource type="Script" path="res://scripts/resources/building_data.gd" id="3_2v3p5"]
+[ext_resource type="Script" path="res://scripts/custom_resources/building_data.gd" id="3_2v3p5"]
 
 [resource]
 resource_name = "Floor"

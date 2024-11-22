@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://coqq26ekt35xh"]
 
 [ext_resource type="Script" path="res://scripts/managers/user_interface.gd" id="1_2omow"]
-[ext_resource type="Script" path="res://scripts/resources/building_data.gd" id="2_5e5qj"]
-[ext_resource type="Resource" uid="uid://dl186ik4wivl5" path="res://scripts/resources/props/wall.tres" id="3_cgfd7"]
-[ext_resource type="Resource" uid="uid://dgd5vrj5y0m17" path="res://scripts/resources/props/floor.tres" id="4_mat0e"]
-[ext_resource type="Resource" uid="uid://bflxv4egtqv27" path="res://scripts/resources/props/wall_corner.tres" id="5_ekr3e"]
-[ext_resource type="Resource" uid="uid://duhc4fll6x7or" path="res://scripts/resources/props/wall_door.tres" id="6_jrgsx"]
-[ext_resource type="Resource" uid="uid://cfujfkvamwm8y" path="res://scripts/resources/props/wall_window.tres" id="7_ugwx4"]
+[ext_resource type="Script" path="res://resources/building_data.gd" id="2_5e5qj"]
+[ext_resource type="Resource" uid="uid://dl186ik4wivl5" path="res://resources/props/wall.tres" id="3_cgfd7"]
+[ext_resource type="Resource" uid="uid://dgd5vrj5y0m17" path="res://resources/props/floor.tres" id="4_mat0e"]
+[ext_resource type="Resource" uid="uid://bflxv4egtqv27" path="res://resources/props/wall_corner.tres" id="5_ekr3e"]
+[ext_resource type="Resource" uid="uid://duhc4fll6x7or" path="res://resources/props/wall_door.tres" id="6_jrgsx"]
+[ext_resource type="Resource" uid="uid://cfujfkvamwm8y" path="res://resources/props/wall_window.tres" id="7_ugwx4"]
 
 [node name="UILayer" type="CanvasLayer"]
 script = ExtResource("1_2omow")
