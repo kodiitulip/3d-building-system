@@ -1,24 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://coqq26ekt35xh"]
+[gd_scene load_steps=4 format=3 uid="uid://coqq26ekt35xh"]
 
 [ext_resource type="Script" path="res://scripts/managers/user_interface.gd" id="1_2omow"]
-[ext_resource type="Script" path="res://resources/building_data.gd" id="2_5e5qj"]
-[ext_resource type="Resource" uid="uid://dl186ik4wivl5" path="res://resources/props/wall.tres" id="3_cgfd7"]
-[ext_resource type="Resource" uid="uid://dgd5vrj5y0m17" path="res://resources/props/floor.tres" id="4_mat0e"]
-[ext_resource type="Resource" uid="uid://bflxv4egtqv27" path="res://resources/props/wall_corner.tres" id="5_ekr3e"]
-[ext_resource type="Resource" uid="uid://duhc4fll6x7or" path="res://resources/props/wall_door.tres" id="6_jrgsx"]
-[ext_resource type="Resource" uid="uid://cfujfkvamwm8y" path="res://resources/props/wall_window.tres" id="7_ugwx4"]
+[ext_resource type="Resource" uid="uid://bhejbqxpfv5o6" path="res://resources/databases/objects_database.tres" id="2_tk8a7"]
+[ext_resource type="Theme" uid="uid://b7f6ixpjommwo" path="res://assets/ui_theme/ui.tres" id="3_n3v8i"]
 
 [node name="UILayer" type="CanvasLayer"]
 script = ExtResource("1_2omow")
-prop_datas = Array[ExtResource("2_5e5qj")]([ExtResource("4_mat0e"), ExtResource("3_cgfd7"), ExtResource("5_ekr3e"), ExtResource("6_jrgsx"), ExtResource("7_ugwx4")])
+prop_database = ExtResource("2_tk8a7")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = -1
-anchor_top = 0.876543
+anchor_top = 0.83179
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.987654
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_n3v8i")
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
@@ -34,7 +31,18 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="Props" type="HBoxContainer" parent="MarginContainer/Bottom Bar"]
+[node name="Panel" type="Panel" parent="MarginContainer/Bottom Bar/Menus"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Bottom Bar"]
+layout_mode = 2
+size_flags_horizontal = 3
+follow_focus = true
+vertical_scroll_mode = 0
+
+[node name="Props" type="HBoxContainer" parent="MarginContainer/Bottom Bar/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 20

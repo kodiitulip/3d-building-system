@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="BuildingData" load_steps=4 format=3 uid="uid://bflxv4egtqv27"]
+[gd_resource type="Resource" script_class="ObjectData" load_steps=4 format=3 uid="uid://bflxv4egtqv27"]
 
-[ext_resource type="Texture2D" uid="uid://dl5s7ff4lgcd0" path="res://assets/kenneys/kenney_mini-market/Previews/wall-corner.png" id="1_h2p54"]
-[ext_resource type="PackedScene" uid="uid://lhvjnioj4p3x" path="res://assets/kenneys/kenney_mini-market/Models/GLB format/wall-corner.glb" id="2_p3oac"]
-[ext_resource type="Script" path="res://scripts/custom_resources/building_data.gd" id="3_g78u2"]
+[ext_resource type="Texture2D" uid="uid://dl5s7ff4lgcd0" path="res://assets/kenneys/kenney_mini-market/Previews/wall-corner.png" id="1_tyfjd"]
+[ext_resource type="PackedScene" uid="uid://lhvjnioj4p3x" path="res://assets/kenneys/kenney_mini-market/Models/GLB format/wall-corner.glb" id="2_pjnsl"]
+[ext_resource type="Script" path="res://scripts/custom_resources/building_data.gd" id="3_cnbvt"]
 
 [resource]
 resource_name = "Wall Corner"
-script = ExtResource("3_g78u2")
+script = ExtResource("3_cnbvt")
 prop_name = "Wall Corner"
-scene = ExtResource("2_p3oac")
-preview = ExtResource("1_h2p54")
+id = &"wall_corner"
+scene = ExtResource("2_pjnsl")
+preview = ExtResource("1_tyfjd")
 footprint = Vector3i(1, 1, 1)
+placement_offset = Vector3(0.5, 0, 0.5)

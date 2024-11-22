@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ObjectData" load_steps=4 format=3 uid="uid://bykiwy1iopc74"]
+
+[ext_resource type="Texture2D" uid="uid://duuvtw0q3ku8y" path="res://assets/kenneys/kenney_mini-market/Previews/shopping-cart.png" id="1_86bwh"]
+[ext_resource type="PackedScene" uid="uid://bugjthaue5dn4" path="res://assets/kenneys/kenney_mini-market/Models/GLB format/shopping-cart.glb" id="2_1exrv"]
+[ext_resource type="Script" path="res://scripts/custom_resources/building_data.gd" id="3_2cldm"]
+
+[resource]
+resource_name = "Shopping Cart"
+script = ExtResource("3_2cldm")
+prop_name = "Shopping Cart"
+id = &"shopping_cart"
+scene = ExtResource("2_1exrv")
+preview = ExtResource("1_86bwh")
+footprint = Vector3i(1, 1, 1)
+placement_offset = Vector3(0.5, 0, 0.5)

@@ -64,9 +64,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_WHEEL_UP):
 			new_zoom -= zoom_amount
+			get_viewport().set_input_as_handled()
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_WHEEL_DOWN):
 			new_zoom += zoom_amount
-		get_viewport().set_input_as_handled()
+			get_viewport().set_input_as_handled()
 
 
 func _handle_rotation_mouse_input() -> void:

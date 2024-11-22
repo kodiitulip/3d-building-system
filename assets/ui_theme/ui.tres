@@ -1,0 +1,74 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://b7f6ixpjommwo"]
+
+[ext_resource type="Texture2D" uid="uid://b6k4n8gp5ttwq" path="res://assets/kenneys/kenney_ui-pack-space-expansion/Vector/Extra/button_rectangle_depth.svg" id="1_0b0wu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n50kg"]
+texture = ExtResource("1_0b0wu")
+texture_margin_left = 12.2113
+texture_margin_top = 12.0109
+texture_margin_right = 11.974
+texture_margin_bottom = 15.9039
+modulate_color = Color(0.273198, 0.273198, 0.296875, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ksahs"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.881902, 0.881902, 0.958333, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uf8fa"]
+texture = ExtResource("1_0b0wu")
+texture_margin_left = 12.2113
+texture_margin_top = 12.0109
+texture_margin_right = 11.974
+texture_margin_bottom = 15.9039
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+modulate_color = Color(0.921875, 0.921875, 0.921875, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ef6pq"]
+texture = ExtResource("1_0b0wu")
+texture_margin_left = 12.2113
+texture_margin_top = 12.0109
+texture_margin_right = 11.974
+texture_margin_bottom = 15.9039
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+modulate_color = Color(0.520833, 0.520833, 0.520833, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_impdl"]
+texture = ExtResource("1_0b0wu")
+texture_margin_left = 12.2113
+texture_margin_top = 12.0109
+texture_margin_right = 11.974
+texture_margin_bottom = 15.9039
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vj6fr"]
+texture = ExtResource("1_0b0wu")
+texture_margin_left = 12.2113
+texture_margin_top = 12.0109
+texture_margin_right = 11.974
+texture_margin_bottom = 15.9039
+modulate_color = Color(0.520833, 0.520833, 0.520833, 1)
+
+[resource]
+Button/colors/font_color = Color(0.273198, 0.273198, 0.296875, 1)
+Button/colors/font_focus_color = Color(0.273198, 0.273198, 0.296875, 1)
+Button/colors/font_hover_color = Color(0.359471, 0.359471, 0.390625, 1)
+Button/colors/font_hover_pressed_color = Color(0.254026, 0.254026, 0.276042, 1)
+Button/colors/font_pressed_color = Color(0.182132, 0.182132, 0.197917, 1)
+Button/styles/disabled = SubResource("StyleBoxTexture_n50kg")
+Button/styles/focus = SubResource("StyleBoxFlat_ksahs")
+Button/styles/hover = SubResource("StyleBoxTexture_uf8fa")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_ef6pq")
+Button/styles/normal = SubResource("StyleBoxTexture_impdl")
+Button/styles/pressed = SubResource("StyleBoxTexture_vj6fr")

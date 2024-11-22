@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ObjectData" load_steps=4 format=3 uid="uid://bp4761q43k74i"]
+
+[ext_resource type="Texture2D" uid="uid://crvi700a8fwk5" path="res://assets/kenneys/kenney_mini-market/Previews/freezer.png" id="1_goncy"]
+[ext_resource type="PackedScene" uid="uid://cbk7lfg4fnh3i" path="res://assets/kenneys/kenney_mini-market/Models/GLB format/freezer.glb" id="2_qgvt3"]
+[ext_resource type="Script" path="res://scripts/custom_resources/building_data.gd" id="3_h6i2a"]
+
+[resource]
+resource_name = "Freezer"
+script = ExtResource("3_h6i2a")
+prop_name = "Freezer"
+id = &"freezer"
+scene = ExtResource("2_qgvt3")
+preview = ExtResource("1_goncy")
+footprint = Vector3i(1, 1, 1)
+placement_offset = Vector3(0.5, 0, 0.5)

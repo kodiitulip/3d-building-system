@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ObjectsDatabase" load_steps=10 format=3 uid="uid://bhejbqxpfv5o6"]
+
+[ext_resource type="Script" path="res://scripts/custom_resources/building_data.gd" id="1_m3kqx"]
+[ext_resource type="Resource" uid="uid://bp4761q43k74i" path="res://resources/props/freezer.tres" id="2_27l1a"]
+[ext_resource type="Script" path="res://scripts/custom_resources/objects_database.gd" id="2_qgeco"]
+[ext_resource type="Resource" uid="uid://bykiwy1iopc74" path="res://resources/props/shopping_cart.tres" id="3_b2t4p"]
+[ext_resource type="Resource" uid="uid://dgd5vrj5y0m17" path="res://resources/props/floor.tres" id="4_cd6ro"]
+[ext_resource type="Resource" uid="uid://dl186ik4wivl5" path="res://resources/props/wall.tres" id="5_gj4h0"]
+[ext_resource type="Resource" uid="uid://bflxv4egtqv27" path="res://resources/props/wall_corner.tres" id="6_7aaj2"]
+[ext_resource type="Resource" uid="uid://duhc4fll6x7or" path="res://resources/props/wall_door.tres" id="7_glq1k"]
+[ext_resource type="Resource" uid="uid://cfujfkvamwm8y" path="res://resources/props/wall_window.tres" id="8_qc10s"]
+
+[resource]
+script = ExtResource("2_qgeco")
+objects_data = Array[ExtResource("1_m3kqx")]([ExtResource("2_27l1a"), ExtResource("3_b2t4p"), ExtResource("4_cd6ro"), ExtResource("5_gj4h0"), ExtResource("6_7aaj2"), ExtResource("7_glq1k"), ExtResource("8_qc10s"), ExtResource("8_qc10s"), ExtResource("8_qc10s"), ExtResource("8_qc10s"), ExtResource("8_qc10s"), ExtResource("8_qc10s"), ExtResource("8_qc10s"), ExtResource("8_qc10s"), ExtResource("8_qc10s"), ExtResource("8_qc10s")])

@@ -1,21 +1,27 @@
-class_name BuildStateManager
+class_name BuildState
 extends Node3D
 
+#region Variables
 @export var ray_length: float = 3000.0
 @export var movement_time: float = 5.0
-@export_group("Centered", "centered_")
-@export var centered_cell_x: bool = false
-@export var centered_cell_y: bool = false
-@export var centered_cell_z: bool = false
+@export var cell_size: Vector3 = Vector3.ONE
 
 var current_spawnable: Node3D
-var current_offset: Vector3 = Vector3(0.0, 0.0, 0.0)
+var placement_offset: Vector3 = Vector3(0.5, 0.0, 0.5)
+var placement_footprint: Vector3 = Vector3.ZERO
+
 var container: Node3D
 var new_pos: Vector3
 
 var plane: Plane = Plane.PLANE_XZ
 
+static var build_state: BuildState
+#endregion
+
+
 func _ready() -> void:
+	if not build_state:
+		build_state = self
 	container = get_tree().get_first_node_in_group(&"world_container")
 	plane.d = global_position.y
 
@@ -32,21 +38,6 @@ func _process(delta: float) -> void:
 			.lerp(new_pos, delta * movement_time)
 
 
-func local_to_map(pos: Vector3) -> Vector3i:
-	return Vector3i(floori(pos.x),floori(pos.y),floori(pos.z))
-
-
-func map_to_local(grid_pos: Vector3i) -> Vector3:
-	var final: Vector3 = Vector3(grid_pos)
-	if centered_cell_x:
-		final += Vector3(0.5, 0.0, 0.0)
-	if centered_cell_y:
-		final += Vector3(0.0, 0.5, 0.0)
-	if centered_cell_z:
-		final += Vector3(0.0, 0.0, 0.5)
-	return final
-
-
 func _unhandled_input(event: InputEvent) -> void:
 	if GameState.current_state != GameState.STATE_BUILD or not current_spawnable:
 		return
@@ -54,6 +45,32 @@ func _unhandled_input(event: InputEvent) -> void:
 		_place_object_in_world()
 	if event.is_action_pressed(&"mouse_right") and current_spawnable:
 		_leave_build_mode()
+
+
+func local_to_map(pos: Vector3) -> Vector3i:
+	var map_pos: Vector3 = (pos / cell_size).floor()
+	return Vector3i(map_pos)
+
+
+func map_to_local(map_pos: Vector3i) -> Vector3:
+	var offset: Vector3 = placement_offset
+	var local_pos: Vector3 = Vector3(
+		map_pos.x * cell_size.x + offset.x,
+		map_pos.y * cell_size.y + offset.y,
+		map_pos.z * cell_size.z + offset.z
+	)
+	return local_pos
+
+
+func build_object(obj_data: ObjectData) -> void:
+	if current_spawnable:
+		current_spawnable.queue_free()
+	current_spawnable = obj_data.scene.instantiate()
+	placement_offset = obj_data.placement_offset
+	placement_footprint = obj_data.footprint
+	add_child.call_deferred(current_spawnable)
+	current_spawnable.global_translate.call_deferred(_get_mouse_world_position())
+	GameState.change_state_to_build()
 
 
 func _leave_build_mode() -> void:
@@ -74,15 +91,6 @@ func _place_object_in_world() -> void:
 		current_spawnable.queue_free()
 		current_spawnable = null
 	get_viewport().set_input_as_handled()
-
-
-func build_object(obj: PackedScene) -> void:
-	if current_spawnable:
-		current_spawnable.queue_free()
-	current_spawnable = obj.instantiate()
-	add_child.call_deferred(current_spawnable)
-	current_spawnable.global_translate.call_deferred(_get_mouse_world_position())
-	GameState.change_state_to_build()
 
 
 func _get_mouse_world_position() -> Vector3:
